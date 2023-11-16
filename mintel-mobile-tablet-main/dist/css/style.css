@@ -1,0 +1,471 @@
+@font-face {
+  font-family: "interFont";
+  src: url("./../../fonts/Inter-VariableFont_slnt,wght.ttf");
+}
+body {
+  box-sizing: border-box;
+  font-family: interFont, sans-serif;
+}
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 100%;
+}
+
+h1 {
+  font-size: clamp(1em, 1em + 2vw, 2.5em);
+}
+
+h2, h3, h4, h5, h6 {
+  font-size: clamp(1.375em, 0.875em + 2vw, 2.25em);
+}
+
+.mintel {
+  height: 43px;
+  line-height: 43px;
+  text-align: center;
+  background-color: #ffee55;
+}
+.mintel h1 {
+  font-weight: 500;
+}
+
+.logo {
+  margin-top: 208px;
+  text-align: center;
+}
+
+.phone,
+.password {
+  min-width: 300px;
+  max-width: 300px;
+  margin: 16px auto;
+  display: block;
+  border: 1.7px solid #868686;
+  border-radius: 3px;
+  height: 32px;
+  text-indent: 10px;
+}
+.phone::placeholder,
+.password::placeholder {
+  text-indent: 20px;
+  font-size: 16px;
+  color: #868686;
+}
+
+.form-login {
+  display: flex;
+  margin: 0 auto;
+  min-width: 300px;
+  max-width: 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#login__btn {
+  height: 32px;
+  width: 99px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #ffee55;
+  cursor: pointer;
+}
+
+#login__link {
+  color: #ff7d7d;
+  font-size: 16px;
+}
+
+.form-field__password {
+  display: block;
+  width: 100%;
+  max-width: 375px;
+  min-width: 300px;
+  margin: 15px auto;
+  position: relative;
+}
+.form-field__password .open-eye, .form-field__password .close-eye {
+  position: absolute;
+  top: 4px;
+  right: 45px;
+  cursor: pointer;
+}
+.form-field__password .open-eye {
+  display: block;
+}
+.form-field__password .close-eye {
+  display: none;
+}
+
+.recovery-cod {
+  margin-top: 198px;
+  margin-bottom: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 204px;
+  text-align: center;
+}
+
+#recovery__link {
+  min-width: 300px;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  background-color: #ffee55;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 16px;
+  color: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#validar__btn {
+  height: 32px;
+  min-width: 300px;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #ffee55;
+  cursor: pointer;
+}
+
+/* Definindo um layout de grade basico */
+.nav__grid-container {
+  background-color: rgba(0, 0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 3 colunas com largura igual */
+  grid-gap: 1px; /* espaco de 10px entre as celulas */
+}
+
+/* Estilizando as celulas da grade */
+.grid-item {
+  background-color: black;
+  padding: 70px 0;
+  text-align: center;
+}
+.grid-item a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+.grid-item a:hover {
+  color: #ffee55;
+}
+
+.menu h1 {
+  display: block;
+  text-align: center;
+  text-indent: -50px;
+}
+
+.menu__btn {
+  display: block;
+  width: 60px;
+  height: 43px;
+  float: left;
+  background-color: #ffee55;
+  cursor: pointer;
+}
+.menu__btn img {
+  margin-top: 2px;
+  margin-left: 19px;
+  margin-right: 19px;
+  background-color: #ffee55;
+}
+
+.menu__nav {
+  display: none;
+}
+
+.show-menu {
+  display: block;
+  animation: slide-in 0.15s;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+#menu__xmark {
+  display: none;
+}
+
+.home {
+  width: 85%;
+  margin-top: 138px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.request ul {
+  background-color: #eaeaea;
+}
+.request ul li {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 12px;
+}
+.request ul ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.request-btn {
+  display: flex;
+  width: 100%;
+  height: 39px;
+  margin-top: 8px;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  cursor: pointer;
+}
+.request-btn p {
+  font-size: 12px;
+}
+.request-btn p:first-child {
+  padding-left: 12px;
+}
+.request-btn p:last-child {
+  padding-right: 24px;
+}
+
+.request-list--icon-red::after {
+  content: "";
+  display: inline-block;
+  background: url("./../../src/img/circle-check-solid-red.png");
+  width: 21px;
+  height: 21px;
+  line-height: 21px;
+  float: right;
+  margin-right: 21px;
+}
+.request-list--icon-green::after {
+  content: "";
+  display: inline-block;
+  background: url("./../../src/img/circle-check-solid-green.png");
+  width: 21px;
+  height: 21px;
+  line-height: 21px;
+  float: right;
+  margin-right: 21px;
+}
+
+.green {
+  background-color: #47d72f;
+}
+
+.red {
+  background-color: #ff0000;
+}
+
+.black {
+  background-color: #000000;
+  color: #fff;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.main .newsletter-section {
+  margin-bottom: 20px;
+}
+.main .newsletter-section .file {
+  display: none;
+}
+
+#send-newsletter-email {
+  color: #fff;
+  background-color: #000;
+}
+
+#add-newsletter-archive {
+  width: 136px;
+}
+
+.newsletter-load {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+}
+.newsletter-load p {
+  color: #fff;
+  text-align: center;
+}
+.newsletter-load p:last-child {
+  margin-top: 10px;
+  font-size: 12px;
+}
+.newsletter-load-box-range {
+  color: #fff;
+  display: block;
+  width: 207px;
+  height: 20px;
+  line-height: 20px;
+  margin: 0 auto;
+  background-color: green;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.loader {
+  width: 93px;
+  height: 93px;
+  position: relative;
+  top: -80px;
+  margin: 0 auto;
+  transform: translateZ(0);
+}
+
+.loader span {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -5px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #e6e6e6, #b3b3b3);
+  animation: loader 3s infinite linear;
+}
+
+.loader span:nth-child(1) {
+  animation-delay: -1s;
+}
+
+.loader span:nth-child(2) {
+  animation-delay: -0.9s;
+}
+
+.loader span:nth-child(3) {
+  animation-delay: -0.8s;
+}
+
+.loader span:nth-child(4) {
+  animation-delay: -0.7s;
+}
+
+.loader span:nth-child(5) {
+  animation-delay: -0.6s;
+}
+
+.loader span:nth-child(6) {
+  animation-delay: -0.5s;
+}
+
+.loader span:nth-child(7) {
+  animation-delay: -0.4s;
+}
+
+.loader span:nth-child(8) {
+  animation-delay: -0.3s;
+}
+
+.loader span:nth-child(9) {
+  animation-delay: -0.2s;
+}
+
+.loader span:nth-child(10) {
+  animation-delay: -0.1s;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg) translateX(35px) rotate(0deg);
+  }
+  25% {
+    transform: rotate(180deg) translateX(35px) rotate(-180deg);
+  }
+  50% {
+    transform: rotate(360deg) translateX(35px) rotate(-360deg);
+    background: linear-gradient(to bottom, #e6e6e6, #666666);
+  }
+  75% {
+    transform: rotate(540deg) translateX(35px) rotate(-540deg);
+    background: linear-gradient(to bottom, #e6e6e6, #444444);
+  }
+  100% {
+    transform: rotate(720deg) translateX(35px) rotate(-720deg);
+    background: linear-gradient(to bottom, #e6e6e6, #222222);
+  }
+}
+.ebooks {
+  margin-bottom: 25px;
+}
+
+.ebook-btn {
+  width: 132px;
+  height: 29px;
+  line-height: 29px;
+  font-size: 12px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.ebook-btn a {
+  display: block;
+  width: 100%;
+  color: #000;
+}
+
+.main {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.subject {
+  display: inline-block;
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  background-color: #d9d9d9;
+  padding: 0 20px;
+}
+.subject::placeholder {
+  text-indent: 24px;
+}
+
+.textarea {
+  display: inline-block;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 250px;
+  border: 1px solid #e0e0e0;
+  margin-top: 16px;
+}
+.textarea::placeholder {
+  text-indent: 24px;
+}
+
+.height {
+  height: 84vh;
+}
