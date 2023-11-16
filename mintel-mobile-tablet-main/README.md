@@ -1,2 +1,0 @@
-# mintel-mobile-tablet
- mintel
