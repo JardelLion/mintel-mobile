@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../../dist/css/style.css">
+    <link rel="stylesheet" href="./../../dist/css/clientes.css">
+    
+    <link rel="stylesheet" href="./../../dist/css/modal.css">
+    <link rel="stylesheet" href="./../../dist/css/pop_up.css">
+    <script src="../js/jquery.js"></script>
+
+    <title>CLIENTE</title>
+
+    <style>
+
+        div.close {
+            text-align: center;
+            padding-top: 9px;
+        }
+
+        .close,
+        #editEbook-modal-btn-yes {
+            cursor: pointer;
+        }
+            
+        #editEbook-modal-btn-yes a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding-top: 10px;
+        }
+
+        span.client-section-btn {
+            text-align: center;
+        }
+
+        section.client-section-active {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="mintel menu">
+        
+            <button class="menu__btn"  id='menu__xmark'>
+                <img src="./../img/xmark-solid 1.png" alt="Xmark solid 1">
+            </button>
+
+            <button class="menu__btn" id="menu__burger" >
+                <img src="./../img/bars-solid 1.png" alt="bar solid">
+            </button>
+
+            <h1 class="mintel-title">CLIENTE</h1>
+        </div>
+    
+        <nav class="menu__nav">
+            <ul class="nav__grid-container">
+    
+                <li class="grid-item">
+                    <a href="./home.html">Home</a>
+                </li>
+                <li class="grid-item">
+                    <a href="clientes.html">Clientes</a>
+                </li>
+                <li class="grid-item">
+                    <a href="sms.html">SMS</a>
+                </li>
+                <li class="grid-item">
+                    <a href="listas.html">Listas</a>
+                </li>
+                <li class="grid-item">
+                    <a href="#"></a>
+                </li>
+                <li class="grid-item">
+                    <a href="#"></a>
+                </li>
+    
+                <li class="grid-item">
+                    <a href="#"></a>
+                </li>
+    
+                <li class="grid-item">
+                    <a href="#">Sair</a>
+                </li>
+                </ul>
+        </nav>
+    </header>
+
+    <main class="main close-content height">
+     
+        <form action="">
+            <section class="client-section client-section-active">
+               <span class="client-section-btn ebook-btn" id="editClient-btn">EDITAR CLIENTE</span>
+                <span class="client-section-btn ebook-btn modal-send" id="client-btn">
+                    SALVAR CLIENTE
+                </span> 
+    
+            
+            </section>
+    
+            <section class="client-section">
+                <input type="text" class="client-name-input" id="client-name" placeholder="Nome" required>
+                <input type="datetime" class="client-phone-input" id="client-phone" placeholder="Telefone" required>
+                <input type="text" class="client-email-input" id="client-email" placeholder="Email" required>
+            </section>
+    
+    
+            <textarea name="text" class="client-textarea" id="client-textarea" cols="30" rows="10"
+            placeholder="Nota" required></textarea>
+
+            <!--first modal-->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-box-content">
+                        <h3>Salvar Cliente ?</h3>
+                        
+                        <section class="modal-box-section" style="flex-direction:row;">
+                            <button class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes">
+                                <a href="load.html">SIM</a>
+                            </button>
+                
+                            <div class="modal-box-section-btn red modal-btn close" id="editEbook-modal-btn-no">
+                                NÃO
+                            </div>
+                
+                        
+                        </section>
+                    </div>
+                </div>
+                </div>
+                
+            <div id="myOverlay" class="overlay"></div>
+
+
+
+
+        </form>
+
+        <script>
+
+            $(document).ready(function(){
+
+                $("#editClient-btn").click(function(){
+                    if($($("#editClient-btn").hasClass("active"))){
+                        $("#client-name").prop("readonly", false)
+                                    
+
+                                    $("#client-phone").prop("readonly", false)
+                                    
+
+                                    $("#client-email").prop("readonly", false)
+                                    
+
+                                    $("#client-textarea").prop("readonly", false)
+                                   
+                        
+                    }
+
+                })
+                
+                $.ajax({
+                    url: "../markdown/cliente/verTodos.txt",
+                    type: "get",
+                    dataType: "json",
+                    success: function(data){
+                        
+                        
+                        if(data['ok'] === true){
+                            let url = window.location.href
+
+                            let parameters = url.split("?")[1]
+                            
+                            let id = parameters.split("=")[1]
+
+                            for(let i = 0; i <= data["payload"].length; i++){
+
+                                if(data["payload"][i] != undefined && data["payload"][i].identificador == id ){
+                                    $("#client-name").prop("readonly", true)
+                                    .val(data["payload"][i].nome)
+
+                                    $("#client-phone").prop("readonly", true)
+                                    .val(data["payload"][i].telefone)
+
+                                    $("#client-email").prop("readonly", true)
+                                    .val(data["payload"][i].email)
+
+                                    $("#client-textarea").prop("readonly", true)
+                                    .val(data["payload"][i].nota)
+                                
+                                }
+                                
+                               
+                            }
+                            
+                           
+
+                            
+                          
+                            
+
+                        }
+
+                       
+        
+                        
+        
+                    }
+        
+                })
+            })
+           
+        </script>
+
+        
+
+
+
+
+
+    <!--the pop up-->
+
+    <div id="myPopup" class="popup">
+        <span class="close-pop-up">&times;</span>
+        <p></p>
+    </div>
+
+
+
+
+    </main>
+
+    
+</body>
+<script src="./../js/menu.js"></script>
+<script src="./../js/cliente.js"></script>
+<script src="./../js/editarClient.js"></script>
+
+</html>

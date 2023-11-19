@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../../dist/css/style.css">
-   
+
     <title>Cliente</title>
+
     <script src="./../js/jquery.js"></script>
 
     <style>
@@ -15,8 +16,7 @@
             font-size: .9rem;
             text-transform: capitalize;
             text-decoration: none;
-           
-            
+        
         }
 
         .ebook-btn {
@@ -54,13 +54,13 @@
                     <a href="home.html">Home</a>
                 </li>
                 <li class="grid-item">
-                    <a href="cliente-lista.html">Clientes</a>
+                    <a href="clientes.html">Clientes</a>
                 </li>
                 <li class="grid-item">
                     <a href="sms.html">SMS</a>
                 </li>
                 <li class="grid-item">
-                    <a href="#"></a>
+                    <a href="listas.html">Lista</a>
                 </li>
                 <li class="grid-item">
                     <a href="#"></a>
@@ -84,12 +84,13 @@
 
         <section class="ebooks">
             <button class="ebook-btn" id="ebook-add-link">
-                <a href="./add-clientes.html">ADICIONAR CLIIENTE</a>
+                <a href="./adicionarCliente.html">ADICIONAR CLIIENTE</a>
             </button>
         </section>
 
 
         <p class="total-client"></p>
+
         <script>
 
             $(document).ready(function(){
@@ -117,7 +118,7 @@
                                 const paragragh2 = $("<p></p").text(data["payload"][i].email).appendTo(buttonBox);
                                 
                                 const paragrahpLink = $("<a></a>")
-                                    .attr("href", "home.html?yds=" + data["payload"][i].identificador)
+                                    .attr("href", "cliente.html?yds=" + data["payload"][i].identificador)
                                     .text(data["payload"][i].nome)
                                     .appendTo(paragragh)
 
