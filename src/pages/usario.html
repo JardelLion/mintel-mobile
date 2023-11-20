@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../../dist/css/style.css">
-    <link rel="stylesheet" href="./../../dist/css/clientes.css">
+    <link rel="stylesheet" href="../../dist/css/style.css">
+    <link rel="stylesheet" href="../../dist/css/clientes.css">
     
-    <link rel="stylesheet" href="./../../dist/css/modal.css">
-    <link rel="stylesheet" href="./../../dist/css/pop_up.css">
+    <link rel="stylesheet" href="../../dist/css/modal.css">
+    <link rel="stylesheet" href="../../dist/css/pop_up.css">
+
+    <link rel="stylesheet" href="../../dist/css/usuario.css">
     <script src="../js/jquery.js"></script>
 
-    <title>CLIENTE</title>
+    <title>USUÁIRO</title>
 
     <style>
 
@@ -55,7 +57,7 @@
                 <img src="./../img/bars-solid 1.png" alt="bar solid">
             </button>
 
-            <h1 class="mintel-title">CLIENTE</h1>
+            <h1 class="mintel-title">USUÁRIO</h1>
         </div>
     
         <nav class="menu__nav">
@@ -83,37 +85,36 @@
         </nav>
     </header>
 
-    <main class="main close-content height">
+    <main class="main close-content height usuario">
      
-        <form action="">
+        <form action="" method="get">
             <section class="client-section client-section-active">
                
                <span class="client-section-btn ebook-btn modal-send" id="client-btn">
-                    SALVAR CLIENTE
-                </span> 
+                    EDITAR
+               </span> 
     
             
             </section>
     
             <section class="client-section">
                 <input type="text" class="client-name-input" id="client-name" placeholder="Nome" required>
+                <input type="text" class="client-name-input" id="client-sex" placeholder="Genero" required>
                 <input type="datetime" class="client-phone-input" id="client-phone" placeholder="Telefone" required>
                 <input type="text" class="client-email-input" id="client-email" placeholder="Email" required>
             </section>
     
-    
-            <textarea name="text" class="client-textarea" id="client-textarea" cols="30" rows="10"
-            placeholder="Nota" required></textarea>
+
 
             <!--first modal-->
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-box-content">
-                        <h3>Adicionar Cliente ?</h3>
+                        <h3>Salvar dados do Usuário ?</h3>
                         
                         <section class="modal-box-section" style="flex-direction:row;">
-                            <button class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes">
-                                <a href="load.html">SIM</a>
+                            <button  type="submit" class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes">
+                                SIM
                             </button>
                 
                             <div class="modal-box-section-btn red modal-btn close" id="editEbook-modal-btn-no">

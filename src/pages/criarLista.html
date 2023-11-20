@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../dist/css/style.css">
+    <link rel="stylesheet" href="../../dist/css/sms.css">
+    <link rel="stylesheet" href="../../dist/css/modal.css">
+
+    <script src="../js/jquery.js"></script>
+    
+    <title>LISTA</title>
+
+    <style>
+        .request-btn a {
+            color: #fff;
+            font-size: .9rem;
+            text-transform: capitalize;
+            text-decoration: none;
+            
+        }
+
+        #editEbook-modal-btn-no {
+            text-align: center;
+            padding-top: 8px;
+        
+        }
+
+
+        .title-list {
+            width: 100%;
+            border: 1px solid rgb(92, 88, 88);
+            padding: 5px 0;
+            border-radius: 2px;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 12px;
+        }
+        #sms-create-list {
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <div class="mintel menu">
+        
+            <button class="menu__btn"  id='menu__xmark'>
+                <img src="./../img/xmark-solid 1.png" alt="Xmark solid 1">
+            </button>
+
+            <button class="menu__btn" id="menu__burger" >
+                <img src="./../img/bars-solid 1.png" alt="bar solid">
+            </button>
+
+            <h1>LISTA</h1>
+        </div>
+    
+        <nav class="menu__nav">
+            <ul class="nav__grid-container">
+                <a class="grid-item  home-link bg-img" href="home.html"></a>
+
+                <a class="grid-item  clientes-link  bg-img" href="clientes.html"></a>
+               
+                <a class="grid-item sms-link  bg-img" href="sms.html"></a>
+               
+                <a class="grid-item listas-link  bg-img" href="listas.html"></a>
+               
+                <a class="grid-item usuario-link  bg-img" href="usario.html"></a>
+              
+                <a class="grid-item definicoes-link  bg-img" href="definicoes.html"></a>
+               
+                <a class="grid-item" href="#"></a>
+             
+                <button class="grid-item" href="../../index.html">SAIR</button>
+             
+                
+                
+            </ul>
+
+        </nav>
+    </header>
+
+    <main class="main close-content">
+
+        <form method="get">
+
+            <section class="sms-section">
+                <div class="sms-section-btn modal-send" id="sms-create-list">
+                    Criar lista
+                </div>
+               
+
+            </section>
+
+
+            <p class="total-sms"></p>
+
+            <input type="text" id="title-list" class="title-list" value=""  placeholder="Titulo da lista" required>
+
+             <!--first modal-->
+             <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-box-content">
+                        <h3>Adicionar lista ?</h3>
+                        
+                        <section class="modal-box-section" style="flex-direction:row;">
+                            
+                            <button type="submit" class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes" disabled>
+                                <!-- <a href="#">SIM</a> -->
+                                SIM
+                            </button>
+
+                            <!-- <script>
+                                $("#editEbook-modal-btn-yes").on("click", function(){
+                                    
+                                    setTimeout(function(){
+                                    window.location.href = "load.html";
+                                });
+
+                                })
+                               
+                            </script>  -->
+                
+                            <div class="modal-box-section-btn red modal-btn close" id="editEbook-modal-btn-no">
+                                NÃO
+                            </div>
+                
+                        
+                        </section>
+                    </div>
+                </div>
+                </div>
+                
+            <div id="myOverlay" class="overlay"></div>
+            
+            
+            
+            <script>   
+            $(document).ready(function() {
+                // Código AJAX para recuperar dados de clientes
+                $.ajax({
+                    url: "../markdown/cliente/verTodos.txt",
+                    type: "get",
+                    dataType: "json",
+                    success: function(data){
+                    
+
+
+                        var clientes = []
+                    
+
+                        if(data["ok"]){
+                            $('.total-sms').text(data['payload'].length + " Contactos nessa lista");
+
+                            for(let i = 0; i < data["payload"].length; i++){
+                                const sectionBox = $("<section></section>").appendTo(".main");
+                                sectionBox.addClass("request");
+
+                                
+
+                                const buttonBox = $('<button></button>').appendTo(sectionBox);
+                                buttonBox.addClass("request-btn");
+                                buttonBox.addClass("black");
+
+                                const paragraph = $("<p></p>").appendTo(buttonBox);
+
+                                const checkbox = $('<input>', { type: 'checkbox', class: 'cliente-checkbox'});
+                                checkbox.addClass('sms-checkbox')
+                                
+                                buttonBox.append(checkbox);
+
+                                const paragraphLink = $("<a></a>")
+                                    .attr("href", "cliente.html?yds=" + data["payload"][i].identificador)
+                                    .text(data["payload"][i].nome)
+                                    .appendTo(paragraph);
+                            }
+                            
+                            // Adiciona um evento para verificar os checkboxes em tempo real
+
+                            
+                            $('.cliente-checkbox').on('change', function() {
+                                var clienteNome = $(this).siblings('p').find('a').text();
+
+                                var clienteUrl = $(this).closest(".request").find("p a").attr('href')
+                                
+                                let clienteId = clienteUrl.split("?")[1].split("=")[1];     
+                            
+                                
+                                if ($(this).prop('checked')) {
+                                    $("#editEbook-modal-btn-yes").prop("disabled", false);
+                                    
+                                    // $("#editEbook-modal-btn-yes").prop("disabled", false);
+                                    
+                                    // $(this).toggleClass("clicked");
+                                   
+                                    clientes.push(clienteId)
+                                    console.log("O checkbox para o cliente " + clienteNome + " está marcado e a sua URL e: " + clienteId);
+                                } else {
+                                    // $(this).toggleClass("clicked");
+
+                                    for(let i = 0; i <= clientes.length; i++){
+                                        if(clientes[i] == clienteId){
+                                            clientes.splice(i,1);
+                                        }
+                                    }
+                                    console.log("O checkbox para o cliente " + clienteNome + " foi desmarcado e a sua URL e: " + clienteId);
+                                }
+
+                                console.log(clientes)
+                            });
+                        }
+                    }
+                });
+            });
+            </script>
+
+        </form>
+
+    </main>
+    
+</body>
+<script src="./../js/menu.js"></script>   
+<script src="./../js/cliente.js"></script>
+<script>
+    
+    // if($("#title-list").on('change', function(){
+    //     console.log("jardel")
+
+    //     if($('.cliente-checkbox').on('change', function() {
+
+    //         $("#editEbook-modal-btn-yes").prop("disabled", false);
+
+    //     }));
+        
+    // }));
+
+    // if($(".cliente-checkbox").on('change', function(){
+
+    //     // if($('#title-list').on('change', function() {
+
+    //         $("#editEbook-modal-btn-yes").prop("disabled", false);
+
+    //     // }));
+
+    // }));
+
+    
+        
+
+
+
+</script>
+
+</html>
+
+
+
+

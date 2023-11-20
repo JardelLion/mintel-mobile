@@ -1,0 +1,18 @@
+.ebooks {
+  margin-bottom: 25px;
+}
+
+.ebook-btn {
+  width: 132px;
+  height: 33px;
+  line-height: 29px;
+  font-size: 12px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.ebook-btn a {
+  display: block;
+  width: 100%;
+  color: #000;
+}/*# sourceMappingURL=ebooks.css.map */

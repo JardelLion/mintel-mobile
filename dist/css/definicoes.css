@@ -1,0 +1,13 @@
+.definicoes .client-name-input {
+  height: 35px;
+}
+
+.definicoes .def-btn {
+  width: 160px;
+  height: 29px;
+  line-height: 29px;
+  font-size: 12px;
+  background-color: #000;
+  border: 1px solid black;
+  border-radius: 5px;
+}/*# sourceMappingURL=definicoes.css.map */

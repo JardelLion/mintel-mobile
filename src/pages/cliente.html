@@ -41,6 +41,13 @@
             flex-direction: row;
             justify-content: space-between;
         }
+
+        span.save-client {
+            display: none;
+        }
+
+       
+
     </style>
 </head>
 <body>
@@ -60,45 +67,37 @@
     
         <nav class="menu__nav">
             <ul class="nav__grid-container">
-    
-                <li class="grid-item">
-                    <a href="./home.html">Home</a>
-                </li>
-                <li class="grid-item">
-                    <a href="clientes.html">Clientes</a>
-                </li>
-                <li class="grid-item">
-                    <a href="sms.html">SMS</a>
-                </li>
-                <li class="grid-item">
-                    <a href="listas.html">Listas</a>
-                </li>
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-    
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-    
-                <li class="grid-item">
-                    <a href="#">Sair</a>
-                </li>
-                </ul>
+                <a class="grid-item  home-link bg-img" href="home.html"></a>
+
+                <a class="grid-item  clientes-link  bg-img" href="clientes.html"></a>
+               
+                <a class="grid-item sms-link  bg-img" href="sms.html"></a>
+               
+                <a class="grid-item listas-link  bg-img" href="listas.html"></a>
+               
+                <a class="grid-item usuario-link  bg-img" href="usario.html"></a>
+              
+                <a class="grid-item definicoes-link  bg-img" href="definicoes.html"></a>
+               
+                <a class="grid-item" href="#"></a>
+             
+                <button class="grid-item" href="../../index.html">SAIR</button>
+             
+                
+                
+            </ul>
+
         </nav>
     </header>
 
-    <main class="main close-content height">
+    <main class="main close-content height cliente">
      
-        <form action="">
+        <form action="" method="get">
             <section class="client-section client-section-active">
-               <span class="client-section-btn ebook-btn" id="editClient-btn">EDITAR CLIENTE</span>
-                <span class="client-section-btn ebook-btn modal-send" id="client-btn">
-                    SALVAR CLIENTE
-                </span> 
+
+                <span class="client-section-btn ebook-btn" id="editClient-btn">EDITAR CLIENTE</span>
+
+                <span class="client-section-btn ebook-btn modal-send save-client" id="client-btn">SALVAR CLIENT</span> 
     
             
             </section>
@@ -120,8 +119,8 @@
                         <h3>Salvar Cliente ?</h3>
                         
                         <section class="modal-box-section" style="flex-direction:row;">
-                            <button class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes">
-                                <a href="load.html">SIM</a>
+                            <button type="submit" class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes">
+                                SIM
                             </button>
                 
                             <div class="modal-box-section-btn red modal-btn close" id="editEbook-modal-btn-no">
@@ -147,16 +146,17 @@
 
                 $("#editClient-btn").click(function(){
                     if($($("#editClient-btn").hasClass("active"))){
+
+                        //colocar todos os inputs disponivel para auterar os dados
                         $("#client-name").prop("readonly", false)
-                                    
 
-                                    $("#client-phone").prop("readonly", false)
-                                    
+                        $("#client-phone").prop("readonly", false)
+                        
 
-                                    $("#client-email").prop("readonly", false)
-                                    
+                        $("#client-email").prop("readonly", false)
+                        
 
-                                    $("#client-textarea").prop("readonly", false)
+                        $("#client-textarea").prop("readonly", false)
                                    
                         
                     }
@@ -239,5 +239,12 @@
 <script src="./../js/menu.js"></script>
 <script src="./../js/cliente.js"></script>
 <script src="./../js/editarClient.js"></script>
+<script>
+    document.querySelector('#editClient-btn').addEventListener("click", function(){
+        $("#client-btn").toggleClass("save-client");
+
+    })
+
+</script>
 
 </html>

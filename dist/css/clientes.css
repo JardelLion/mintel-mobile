@@ -40,14 +40,15 @@
 .client-delivery {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(225, 216, 216);
   width: 252px;
   margin: 20px auto 0 auto;
 }
 .client-delivery-btn--main {
+  position: relative;
   display: block;
-  height: 36px;
+  height: 42px;
   line-height: 36px;
+  border-radius: 4px;
 }
 .client-delivery-btn {
   display: none;
@@ -128,4 +129,4 @@
   border-radius: 5px;
   background-color: #47d72f;
   color: #000;
-}
+}/*# sourceMappingURL=clientes.css.map */

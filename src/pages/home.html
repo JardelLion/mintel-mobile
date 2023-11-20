@@ -5,53 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MINTEL</title>
-    <link rel="stylesheet" href="./../../dist/css/style.css">
+    
+    <link rel="stylesheet" href="../../dist/css/clientes.css">
+    <link rel="stylesheet" href="../../dist/css/style.css">
   
 </head>
-<body>
+<body class="container">
     <header>
         <div class="mintel menu">
         
             <button class="menu__btn"  id='menu__xmark'>
-                <img src="./../img/xmark-solid 1.png" alt="Xmark solid 1">
+                <img src="../img/xmark-solid 1.png" alt="Xmark solid 1">
             </button>
 
             <button class="menu__btn" id="menu__burger" >
-                <img src="./../img/bars-solid 1.png" alt="bar solid">
+                <img src="../img/bars-solid 1.png" alt="bar solid">
             </button>
 
             <h1>HOME</h1>
         </div>
         <nav class="menu__nav">
             <ul class="nav__grid-container">
-    
-                <li class="grid-item">
-                    <a href="home.html">Home</a>
-                </li>
-                <li class="grid-item">
-                    <a href="clientes.html">Clientes</a>
-                </li>
-                <li class="grid-item">
-                    <a href="sms.html">SMS</a>
-                </li>
-                <li class="grid-item">
-                    <a href="listas.html">Lista</a>
-                </li>
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-    
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-    
-                <li class="grid-item">
-                    <a href="../../index.html">Sair</a>
-                </li>
-                </ul>
+                <a class="grid-item  home-link bg-img" href="home.html"></a>
+
+                <a class="grid-item  clientes-link  bg-img" href="clientes.html"></a>
+               
+                <a class="grid-item sms-link  bg-img" href="sms.html"></a>
+               
+                <a class="grid-item listas-link  bg-img" href="listas.html"></a>
+               
+                <a class="grid-item usuario-link  bg-img" href="usario.html"></a>
+              
+                <a class="grid-item definicoes-link  bg-img" href="definicoes.html"></a>
+               
+                <a class="grid-item" href="#"></a>
+             
+                <button class="grid-item" href="../../index.html">SAIR</button>
+             
+                
+                
+            </ul>
+
         </nav>
     
 
@@ -60,96 +54,109 @@
 
 
     <main class="home close-content">
-        <p>4 pedidos</p>
-       <section class="request">
-        <button class="request-btn red">
-           
-            <p>Pedido</p>
-            <p>Nome do produto</p>
-          
-        </button>
 
-        <ul class="request-list">
-            <li class="request-list--icon-red">Nome do cliente</li>
-            <li>Telefone do cliente</li>
-            <ul>
-                <li>Email do cliente</li>
-                <li>02-08-2909 14h:00</li>
-            </ul>
-        </ul>
+        <section class="section">
+            <div class="home-box">
+                <div class="remetentes">
+                    <h2>REMETENTES</h2>
+    
+                    <ul>
+                        <li><a href="#">MLPDLDA</a></li>
+                        <li><a href="#">BINGA</a></li>
+                        <li><a href="#">DEBLIW</a></li>
+                    </ul>
+                </div>
+    
+                <div class="creditos">
+                    <h2>CREDITOS</h2>
+                    <ul>
+                        <li><p>100 sms</p></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="licenca">
+                <label for="licenca">LICENÇA: </label><p class="licenca-value">VALIDA ATE 12/11/2024</p>
+            </div>
+
+        </section>
+
+
+        <section class="client-delivery">
+            <button class="client-delivery-btn--main " onclick="activeBtn('terms-user')">
+                TERMO DE USO
+                <span class="caret"></span>
+            </button>
+
+            <ul class="client-delivery-btn terms-user">
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+            </ul>  
+        </section>
+
+
+
+        <section class="client-delivery">
+            <button class="client-delivery-btn--main " onclick="activeBtn('privacidade')">POLITICA DE PRIVACIDADE <span class="caret"></span> </button>
+            <ul class="client-delivery-btn privacidade">
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+            </ul>  
+        </section>
+
+
+
+
+        <section class="client-delivery">
+            <button class="client-delivery-btn--main " onclick="activeBtn('us')"> QUEM SOMOS<span class="caret"></span> </button>
+            <ul class="client-delivery-btn us">
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+            </ul>  
+        </section>
+
+
+
+        <section class="client-delivery">
+            <button class="client-delivery-btn--main " onclick="activeBtn('contactos')">CONTACTOS<span class="caret"></span> </button>
+            <ul class="client-delivery-btn contactos">
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed quod debitis maxime quasi dolorem magni omnis illum molestias ratione? Est eius ex nobis laudantium saepe aperiam maiores. Labore, vero.</li>
+            </ul>  
+        </section>
+
        
-       
-       </section>
 
 
 
-       <section class="request">
-        <button class="request-btn green">
-           
-            <p>Pedido</p>
-            <p>Nome do produto</p>
-          
-        </button>
-
-        <ul class="request-list">
-            <li class="request-list--icon-green">Nome do cliente</li>
-            <li>Telefone do cliente</li>
-            <ul>
-                <li>Email do cliente</li>
-                <li>02-08-2909 14h:00</li>
-            </ul>
-        </ul>
-       
-       
-       </section>
 
 
 
-       <section class="request">
-        <button class="request-btn red">
-           
-            <p>Pedido</p>
-            <p>Nome do produto</p>
-          
-        </button>
-
-        <ul class="request-list">
-            <li class="request-list--icon-red">Nome do cliente</li>
-            <li>Telefone do cliente</li>
-            <ul>
-                <li>Email do cliente</li>
-                <li>02-08-2909 14h:00</li>
-            </ul>
-        </ul>
-       
-       
-       </section>
 
 
-       <section class="request">
-        <button class="request-btn red">
-           
-            <p>Pedido</p>
-            <p>Nome do produto</p>
-          
-        </button>
 
-        <ul class="request-list">
-            <li class="request-list--icon-red">Nome do cliente</li>
-            <li>Telefone do cliente</li>
-            <ul>
-                <li>Email do cliente</li>
-                <li>02-08-2909 14h:00</li>
-            </ul>
-        </ul>
-       
-       
-       </section>
+
+    
 
     </main>
     
    
 </body>
-<script src="./../js/menu.js"></script>
-<script src="./../js/home.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/caret.js"></script>
+<script src="../js/home.js"></script>
+
 </html>

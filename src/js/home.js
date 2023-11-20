@@ -1,20 +1,20 @@
-const requestBtn = document.querySelectorAll(".request-btn");
-const requestList = document.querySelectorAll('.request-list');
 
+let isActive = false;
+const activeBtn = function(termsClass){
+    let openText = document.querySelector("."+termsClass);
+   
+    if(!isActive){
+        openText.style.display = 'block';
+       
+        isActive = true;
 
-const closeOpenBtn = function(btn, position){
-    btn[position].addEventListener('click', function(){
-        if(requestList[position].style.display == 'none'){
-            requestList[position].style.display = 'block';
-        }else {
-            requestList[position].style.display = 'none';
+    }
+    else {
+        openText.style.display = 'none';
+        
+        isActive = false;
+
+    }
     
-        }
-
-    })
+    
 }
-
-closeOpenBtn(requestBtn, 0)
-closeOpenBtn(requestBtn, 1)
-closeOpenBtn(requestBtn, 2)
-closeOpenBtn(requestBtn, 3)

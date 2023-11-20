@@ -1,9 +1,120 @@
-.home {
-    width: 85%;
-    margin-top: 138px;
-    margin-left:auto;
-    margin-right: auto;
+
+
+.container {
+    background: url("./../../src/img/home.png") center center no-repeat fixed;
+    background-size: cover;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    & .home .section {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 50px;
+        background-color:  #fff;
+        height: 250px;
+        border-radius: 2px;
+
+        @media (max-width:350px){
+            width: 100%;
+    
+            
+        }
+
+       
+
+        & .remetentes,
+        & .creditos {
+            margin-top: 10px;
+        }
+
+        & .remetentes ul, 
+        & .creditos ul {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        & .remetentes li, 
+        & .creditos li {
+            list-style: disc;
+
+            & a {
+                text-decoration:  none;
+                color: #000;
+                font-size: 18px;
+                cursor: pointer;
+            }
+
+            & p {
+                color: #000;
+                font-size: 20px;
+            }
+        }
+        
+       
+    }
+
 }
+
+.container .home-box {
+
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.licenca {
+   
+    text-align: center;
+    margin-top:  85px;
+    
+}
+
+.licenca label {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.licenca-value {
+    display: inline;
+    font-size: 18px;
+}
+
+
+.container .client-delivery {
+    width: 80%;
+   
+   
+}
+
+.container .caret {
+    right: 12px;
+}
+
+.container ul.client-delivery-btn {
+    width: 100%;
+    padding-left: 20px;
+    height: 250px;
+    background-color: #fff;
+    overflow-y: scroll;
+    margin-bottom: 0;
+
+    & li {
+        
+        list-style: disc;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 .request {

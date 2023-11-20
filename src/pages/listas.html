@@ -17,8 +17,19 @@
             font-size: .9rem;
             text-transform: capitalize;
             text-decoration: none;
+        }
+
+        .sms-section {
+            justify-content: flex-end;
+        }
+        #sms-create-list {
+            background-color: #fff;
             
         }
+        #sms-create-list a {
+            color: #000;
+        }
+    
     </style>
     
 </head>
@@ -34,46 +45,38 @@
                 <img src="./../img/bars-solid 1.png" alt="bar solid">
             </button>
 
-            <h1>SMS</h1>
+            <h1>LISTA</h1>
         </div>
     
         <nav class="menu__nav">
             <ul class="nav__grid-container">
-    
-                <li class="grid-item">
-                    <a href="home.html">Home</a>
-                </li>
-                <li class="grid-item">
-                    <a href="clientes.html">Clientes</a>
-                </li>
-                <li class="grid-item">
-                    <a href="sms.html">SMS</a>
-                </li>
-                <li class="grid-item">
-                    <a href="listas.html">Lista</a>
-                </li>
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-    
-                <li class="grid-item">
-                    <a href="#"></a>
-                </li>
-    
-                <li class="grid-item">
-                    <a href="../../index.html">Sair</a>
-                </li>
-                </ul>
+                <a class="grid-item  home-link bg-img" href="home.html"></a>
+
+                <a class="grid-item  clientes-link  bg-img" href="clientes.html"></a>
+               
+                <a class="grid-item sms-link  bg-img" href="sms.html"></a>
+               
+                <a class="grid-item listas-link  bg-img" href="listas.html"></a>
+               
+                <a class="grid-item usuario-link  bg-img" href="usario.html"></a>
+              
+                <a class="grid-item definicoes-link  bg-img" href="definicoes.html"></a>
+               
+                <a class="grid-item" href="#"></a>
+             
+                <button class="grid-item" href="../../index.html">SAIR</button>
+             
+                
+                
+            </ul>
+
         </nav>
     </header>
 
     <main class="main close-content">
         <section class="sms-section">
             <button class="sms-section-btn" id="sms-create-list">
-                <a href="#">Criar lista</a>
+                <a href="criarLista.html">Criar lista</a>
             </button>
 
         </section>
@@ -91,7 +94,7 @@
                     dataType: "json",
                     success: function(data){
 
-                        $('.total-sms').text(data['payload'].length + " Contactos nessa lista");
+                        $('.total-sms').text(data['payload'].length + " Lista de envio");
 
                         for(let i = 0; i <data["payload"].length; i++){
 
@@ -103,14 +106,7 @@
                             buttonBox.addClass("black");
         
                             const paragragh = $("<p></p").appendTo(buttonBox);
-                            const input = $("<input></input")
-                                .attr({
-                                    type: "checkbox",
-                                    value: ""
-
-                                })
-                                .addClass("sms-checkbox")
-                                .appendTo(buttonBox);
+                           
                             
                             const paragrahpLink = $("<a></a>")
                                 .attr("href", "home.html?yds=" + data["payload"][i].identificador)
