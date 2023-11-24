@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "interFont";
   src: url("./../../fonts/Inter-VariableFont_slnt,wght.ttf");
@@ -149,108 +148,14 @@ h2, h3, h4, h5, h6 {
   background-color: rgba(0, 0, 0, 0);
   display: grid;
   grid-template-columns: 1fr 1fr; /* 3 colunas com largura igual */
-  grid-gap: 2px; /* espaco de 10px entre as celulas */
-}
-.nav__grid-container .bg-img {
-  background-repeat: no-repeat;
-  background-size: 50% 50%;
-  background-position: center center;
-  background-color: #000;
-}
-.nav__grid-container .home-link {
-  background-image: url("./../../src/img/svg/home.svg");
-}
-.nav__grid-container .home-link::before {
-  position: relative;
-  content: "Home";
-  display: block;
-  color: #fff;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 20px;
-  font-weight: normal;
-  top: 55px;
-}
-.nav__grid-container .clientes-link {
-  background-image: url("./../../src/img/svg/clientes.svg");
-}
-.nav__grid-container .clientes-link::before {
-  position: relative;
-  content: "Clientes";
-  display: block;
-  color: #fff;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 20px;
-  font-weight: normal;
-  top: 55px;
-}
-.nav__grid-container .sms-link {
-  background-image: url("./../../src/img/svg/sms.svg");
-}
-.nav__grid-container .sms-link::before {
-  position: relative;
-  content: "SMS";
-  display: block;
-  color: #fff;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 20px;
-  font-weight: normal;
-  top: 55px;
-}
-.nav__grid-container .listas-link {
-  background-image: url("./../../src/img/svg/listas.svg");
-}
-.nav__grid-container .listas-link::before {
-  position: relative;
-  content: "Lista";
-  display: block;
-  color: #fff;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 20px;
-  font-weight: normal;
-  top: 55px;
-}
-.nav__grid-container .usuario-link {
-  background-image: url("./../../src/img/svg/user.svg");
-}
-.nav__grid-container .usuario-link::before {
-  position: relative;
-  content: "Usuáiro";
-  display: block;
-  color: #fff;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 20px;
-  font-weight: normal;
-  top: 55px;
-}
-.nav__grid-container .definicoes-link {
-  background-image: url("./../../src/img/svg/settings.svg");
-}
-.nav__grid-container .definicoes-link::before {
-  position: relative;
-  content: "Definições";
-  display: block;
-  color: #fff;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 20px;
-  font-weight: normal;
-  top: 55px;
+  grid-gap: 1px; /* espaco de 10px entre as celulas */
 }
 
 /* Estilizando as celulas da grade */
-button.grid-item {
-  color: #fff;
-  font-size: 20px;
-}
-
 .grid-item {
+  position: relative;
   background-color: black;
-  padding: 70px 0;
+  padding: 40px 0;
   text-align: center;
 }
 .grid-item a {
@@ -260,6 +165,29 @@ button.grid-item {
 }
 .grid-item a:hover {
   color: #ffee55;
+}
+
+.home__title,
+.cliente__title,
+.sms__title,
+.lista__title,
+.usuario__title,
+.definicoes__title,
+.sair__title {
+  position: absolute;
+  display: inline-block;
+  width: 80px;
+  margin: 0 auto;
+  text-align: center;
+  bottom: 10px;
+  color: #fff;
+  font-size: 1.5625rem;
+}
+
+.usuario__title,
+.definicoes__title {
+  display: block;
+  width: 100%;
 }
 
 .menu h1 {
@@ -302,6 +230,12 @@ button.grid-item {
 }
 #menu__xmark {
   display: none;
+}
+
+.sair {
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 0 70px;
 }
 
 .container {
@@ -590,7 +524,7 @@ button.grid-item {
 
 .ebook-btn {
   width: 132px;
-  height: 29px;
+  height: 33px;
   line-height: 29px;
   font-size: 12px;
   background-color: transparent;

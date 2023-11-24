@@ -5,50 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../dist/css/style.css">
-    <link rel="stylesheet" href="../../dist/css/clientes.css">
-    
+    <link rel="stylesheet" href="../../dist/css/sms.css">
     <link rel="stylesheet" href="../../dist/css/modal.css">
-    <link rel="stylesheet" href="../../dist/css/pop_up.css">
-
-    <link rel="stylesheet" href="../../dist/css/definicoes.css">
 
     <script src="../js/jquery.js"></script>
-
-    <title>DEFINIÇÕES</title>
+    
+    <title>LISTA</title>
 
     <style>
-        form {
-            margin-bottom: 100px;
+        .request-btn a {
+            color: #fff;
+            font-size: .9rem;
+            text-transform: capitalize;
+            text-decoration: none;
+            
         }
 
-        div.close {
+        #editEbook-modal-btn-no {
             text-align: center;
             padding-top: 8px;
+        
         }
 
-        .close,
-        #editEbook-modal-btn-yes {
-            cursor: pointer;
-        }
-            
-        #editEbook-modal-btn-yes a {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        padding-top: 10px;
-        }
 
-        span.client-section-btn {
+        .title-list {
+            width: 100%;
+            border: 1px solid rgb(92, 88, 88);
+            padding: 5px 0;
+            border-radius: 2px;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 12px;
+        }
+        .perfil-list {
+            background-color: #000;
+            color: #fff;
+            font-size: 14px;
             text-align: center;
         }
-
-        section.client-section-active {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
     </style>
+    
 </head>
 <body>
     <header>
@@ -62,7 +58,7 @@
                 <img src="./../img/bars-solid 1.png" alt="bar solid">
             </button>
 
-            <h1 class="mintel-title">DEFINIÇÕES</h1>
+            <h1>LISTA</h1>
         </div>
     
         <nav class="menu__nav">
@@ -196,35 +192,50 @@
         </nav>
     </header>
 
-    <main class="main close-content height definicoes">
-     
-        <form action="" method="get">
-            <section class="client-section client-section-active">
+    <main class="main close-content">
+
+        <form method="get">
+
+            <section class="sms-section">
+                <div class="sms-section-btn perfil-list modal-send" id="edit-list" style="display: none;">
+                    Salvar lista
+                </div>
+
+                <div class="sms-section-btn perfil-list" id="active-peril__list">
+                    Editar lista
+                </div>
                
-               <span class="client-section-btn def-btn modal-send" id="client-btn">
-                    ATULIZAR TOKEN
-                </span> 
-    
+
             </section>
-    
-            <section class="client-section">
-                <input type="text" class="client-name-input" id="client-name" placeholder="SecretKey" required>
-                <input type="text" class="client-name-input" id="client-sex" placeholder="Authld" required>
-                
-            </section>
-    
 
 
-            <!--first modal-->
-            <div id="myModal" class="modal">
+            <p class="total-sms"></p>
+
+            <input type="text" id="title-list" class="title-list" value=""  placeholder="Titulo da lista" required>
+
+             <!--first modal-->
+             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-box-content">
-                        <h3>Atualizar Token ?</h3>
+                        <h3>Adicionar lista ?</h3>
                         
                         <section class="modal-box-section" style="flex-direction:row;">
-                            <button  type="submit" class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes">
+                            
+                            <button type="submit" class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes" disabled>
+                                <!-- <a href="#">SIM</a> -->
                                 SIM
                             </button>
+
+                            <!-- <script>
+                                $("#editEbook-modal-btn-yes").on("click", function(){
+                                    
+                                    setTimeout(function(){
+                                    window.location.href = "load.html";
+                                });
+
+                                })
+                               
+                            </script>  -->
                 
                             <div class="modal-box-section-btn red modal-btn close" id="editEbook-modal-btn-no">
                                 NÃO
@@ -237,75 +248,128 @@
                 </div>
                 
             <div id="myOverlay" class="overlay"></div>
-
-
-
-
-        </form>
-
-
-
-
-        <form action="" method="get">
-            <section class="client-section client-section-active">
+            
+            
+            
+            <script> 
                
-               <span class="client-section-btn def-btn modal-send" id="client-btn">
-                    NOVA PALAVRA PASSE
-                </span> 
-    
-            </section>
-    
-            <section class="client-section">
-                <input type="text" class="client-name-input" id="client-name" placeholder="Palavra passe atual" required>
-                <input type="text" class="client-name-input" id="client-sex" placeholder="Nova palavra passe" required>
+
+                $(document).ready(function() {
+                // Código AJAX para recuperar dados de 
+
+                $("#title-list").prop("readonly", true);
+
+                $("#active-peril__list").on("click", function(){
+                    $("#title-list").prop("readonly", false);
+                    $("#edit-list").css("display", "block");
+                    $("#active-peril__list").css("display", "none");
+                    
+                })
+
+
                 
-            </section>
-    
+                $.ajax({
+                    url: "../markdown/cliente/verTodos.txt",
+                    type: "get",
+                    dataType: "json",
+                    success: function(data){
+                    
 
 
-            <!--first modal-->
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-box-content">
-                        <h3>Atualizar Palavra Passe ?</h3>
-                        
-                        <section class="modal-box-section" style="flex-direction:row;">
-                            <button  type="submit" class="modal-box-section-btn green modal-btn" id="editEbook-modal-btn-yes">
-                                SIM
-                            </button>
-                
-                            <div class="modal-box-section-btn red modal-btn close" id="editEbook-modal-btn-no">
-                                NÃO
-                            </div>
-                
-                        
-                        </section>
-                    </div>
-                </div>
-                </div>
-                
-            <div id="myOverlay" class="overlay"></div>
+                        var clientes = []
+                    
+
+                        if(data["ok"]){
+                            $('.total-sms').text(data['payload'].length + " Contactos nessa lista");
+
+                            for(let i = 0; i < data["payload"].length; i++){
+                                const sectionBox = $("<section></section>").appendTo(".main");
+                                sectionBox.addClass("request");
+
+                                
+
+                                const buttonBox = $('<button></button>').appendTo(sectionBox);
+                                buttonBox.addClass("request-btn");
+                                buttonBox.addClass("black");
+
+                                const paragraph = $("<p></p>").appendTo(buttonBox);
+
+                                const checkbox = $('<input>', { type: 'checkbox', class: 'cliente-checkbox'});
+                                checkbox.addClass('sms-checkbox')
+                                
+                                buttonBox.append(checkbox);
+
+                                const paragraphLink = $("<a></a>")
+                                    .attr("href", "cliente.html?yds=" + data["payload"][i].identificador)
+                                    .text(data["payload"][i].nome)
+                                    .appendTo(paragraph);
+                            }
+                            
+                            // Adiciona um evento para verificar os checkboxes em tempo real
+
+                            
+                            //vericando 
+                            var clienteUrl = $(".cliente-checkbox").closest(".request").find("p a").attr('href')
+                                
+                            let clienteId = clienteUrl.split("?")[1].split("=")[1];
+
+                            const allCheckBoxs = document.querySelectorAll(".cliente-checkbox");
+                            
+                            
+                            for(let i = 0; i < data["payload"].length; i++){
+                                    if(data["payload"][i].identificador == clienteId){
+                                        allCheckBoxs[i].click()
+                                        
+                                        clientes.push(data["payload"][i].identificador);
+                                        
+                                        
+                                    }
+                                    
+                            }
 
 
+                            
+                            $('.cliente-checkbox').on('change', function() {
+                                var clienteNome = $(this).siblings('p').find('a').text();
 
+                                var clienteUrl = $(this).closest(".request").find("p a").attr('href')
+                                
+                                let clienteId = clienteUrl.split("?")[1].split("=")[1];
+                                
+                                
+                                if ($(this).prop('checked')) {
+                                    $("#editEbook-modal-btn-yes").prop("disabled", false);
+                                    
+                                    // $("#editEbook-modal-btn-yes").prop("disabled", false);
+                                    
+                                    // $(this).toggleClass("clicked");
+                                   
+                                    clientes.push(clienteId)
+                                    console.log("O checkbox para o cliente " + clienteNome + " está marcado e a sua URL e: " + clienteId);
+                                } else {
+                                    // $(this).toggleClass("clicked");
+
+                                    for(let i = 0; i <= clientes.length; i++){
+                                        if(clientes[i] == clienteId){
+                                            clientes.splice(i,1);
+                                        }
+                                    }
+                                    console.log("O checkbox para o cliente " + clienteNome + " foi desmarcado e a sua URL e: " + clienteId);
+                                }
+
+                                console.log(clientes)
+                            });
+                        }
+                    }
+                });
+            });
+            </script>
 
         </form>
-
-       
-        
-
-
-
-
-
-
 
     </main>
-
     
 </body>
-<script src="../js/menu.js"></script>
-
-
-<script src="../js/definicoes.js"></script>
+<script src="./../js/menu.js"></script>   
+<script src="./../js/cliente.js"></script>
 </html>
