@@ -1,0 +1,61 @@
+// AGENDAR STYLE
+
+.agendar-form {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+//label date
+
+.label-date {
+    display: block;
+    margin-top: 30px;
+}
+
+//input agendar
+.agendar-hour,
+.agendar-date {
+    display: block;
+    width: 80%;
+    height: 35px;
+    border: 2px solid #e0e0e0;
+    border-radius: 2px;
+    margin: 5px 0;
+    text-indent: 15px;
+
+}
+
+.section-agendar {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+//buttons para aprovacao de agendar
+.button-agendar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.agendar-yes,
+.close-agendar{
+    display: block;
+    min-width: 100px;
+    cursor: pointer;
+    height: 29px;
+    line-height: 29px;
+    margin-top: 20px;
+    border-radius: 3px;
+}
+.agendar-yes {
+    background-color: #47d72f;
+}
+
+.close-agendar {
+    background-color: #ff0000;
+    text-align: center;
+    font-size: 0.75rem;
+}

@@ -18,7 +18,7 @@
     height: 29px;
     line-height: 29px;
     display: inline-block;
-    border: 1px solid black;
+   box-shadow: 1px 1px 1px black;
     border-radius: 5px;
     font-size: 12px;
     cursor: pointer;
@@ -26,8 +26,8 @@
 
 
 .sms-section-btn a {
-    display: inline-block;
-    width: 110px;
+    display: block;
+    line-height: 10px;
     color: #fff;
     text-transform: uppercase;
 }
@@ -41,6 +41,20 @@
    
 }
 
+
+//sms agendadas
+.sms-agendadas {
+    width: 112px;
+  height: 29px;
+  line-height: 29px;
+  display: inline-block;
+  box-shadow: 1px 1px 1px gray;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+}
 
 
 

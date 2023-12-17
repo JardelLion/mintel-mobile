@@ -1,12 +1,9 @@
 @use "./../util/functions" as f;
-@font-face {
-    font-family: 'interFont';
-    src: url("./../../fonts/Inter-VariableFont_slnt\,wght.ttf");
-}
+
 
 body {
     box-sizing: border-box;
-    font-family: interFont, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -17,7 +14,6 @@ body {
     text-decoration: none;
     list-style: none;
     border: none;
-    font-family: sans-serif;
 }
 
 p {

@@ -10,4 +10,30 @@
   background-color: #000;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+.definicoes__phone,
+.definicoes__password {
+  width: 100%;
+  margin: 16px auto;
+  display: block;
+  border: 1.7px solid #868686;
+  height: 32px;
+  text-indent: 10px;
+}
+.definicoes__phone::placeholder,
+.definicoes__password::placeholder {
+  text-indent: 10px;
+  font-size: 1rem;
+  color: #868686;
+}
+
+.form-field__password {
+  position: relative;
+}
+.form-field__password .open-eye, .form-field__password .close-eye {
+  position: absolute;
+  top: 4px;
+  right: 14px;
+  cursor: pointer;
 }/*# sourceMappingURL=definicoes.css.map */

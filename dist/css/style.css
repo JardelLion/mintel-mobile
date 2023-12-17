@@ -1,10 +1,6 @@
-@font-face {
-  font-family: "interFont";
-  src: url("./../../fonts/Inter-VariableFont_slnt,wght.ttf");
-}
 body {
   box-sizing: border-box;
-  font-family: interFont, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 *, *::before, *::after {
@@ -14,7 +10,6 @@ body {
   text-decoration: none;
   list-style: none;
   border: none;
-  font-family: sans-serif;
 }
 
 p {
@@ -143,6 +138,10 @@ h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
+.header {
+  background-color: #000;
+}
+
 /* Definindo um layout de grade basico */
 .nav__grid-container {
   background-color: rgba(0, 0, 0, 0);
@@ -160,7 +159,6 @@ h2, h3, h4, h5, h6 {
 }
 .grid-item a {
   color: #fff;
-  font-weight: bold;
   cursor: pointer;
 }
 .grid-item a:hover {
@@ -175,19 +173,25 @@ h2, h3, h4, h5, h6 {
 .definicoes__title,
 .sair__title {
   position: absolute;
-  display: inline-block;
-  width: 80px;
+  display: block;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   bottom: 10px;
   color: #fff;
-  font-size: 1.5625rem;
+  font-size: 1.25rem;
+  font-weight: 100;
 }
 
 .usuario__title,
 .definicoes__title {
   display: block;
   width: 100%;
+}
+
+.sair__title {
+  font-family: "Inter", sans-serif;
+  margin-bottom: 45%;
 }
 
 .menu h1 {
@@ -215,6 +219,13 @@ h2, h3, h4, h5, h6 {
   display: none;
 }
 
+.menu__nav-div {
+  background-color: #fff;
+  width: 80%;
+  margin: 30px auto;
+  border: none;
+}
+
 .show-menu {
   display: block;
   animation: slide-in 0.15s;
@@ -232,18 +243,20 @@ h2, h3, h4, h5, h6 {
   display: none;
 }
 
-.sair {
-  color: #fff;
-  font-size: 1.25rem;
-  padding: 0 70px;
-}
-
 .container {
   background: url("./../../src/img/home.png") center center no-repeat fixed;
   background-size: cover;
   height: 100%;
   padding: 0;
   margin: 0;
+}
+.container .remetentes__title {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #000;
+}
+.container .creditos__title {
+  font-size: 0.875rem;
 }
 .container .home .section {
   width: 80%;
@@ -271,12 +284,14 @@ h2, h3, h4, h5, h6 {
 .container .home .section .remetentes li a, .container .home .section .creditos li a {
   text-decoration: none;
   color: #000;
-  font-size: 18px;
+  font-size: 0.875rem;
+  font-weight: normal;
   cursor: pointer;
 }
 .container .home .section .remetentes li p, .container .home .section .creditos li p {
   color: #000;
-  font-size: 20px;
+  font-size: 0.875rem;
+  font-weight: normal;
 }
 
 .container .home-box {
@@ -286,12 +301,18 @@ h2, h3, h4, h5, h6 {
 
 .licenca {
   text-align: center;
-  margin-top: 85px;
+  margin-top: 111px;
 }
 
-.licenca label {
-  font-weight: bolder;
-  font-size: 18px;
+.licenca p:first-child {
+  font-size: 0.875rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.licenca p:last-child {
+  font-size: 0.875rem;
+  font-weight: normal;
 }
 
 .licenca-value {
@@ -301,6 +322,11 @@ h2, h3, h4, h5, h6 {
 
 .container .client-delivery {
   width: 80%;
+}
+
+.container .client-delivery-btn--main {
+  font-size: 0.875rem;
+  height: 36px;
 }
 
 .container .caret {
@@ -537,8 +563,62 @@ h2, h3, h4, h5, h6 {
   color: #000;
 }
 
+.agendar-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.label-date {
+  display: block;
+  margin-top: 30px;
+}
+
+.agendar-hour,
+.agendar-date {
+  display: block;
+  width: 80%;
+  height: 35px;
+  border: 2px solid #e0e0e0;
+  border-radius: 2px;
+  margin: 5px 0;
+  text-indent: 15px;
+}
+
+.section-agendar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-agendar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.agendar-yes,
+.close-agendar {
+  display: block;
+  min-width: 100px;
+  cursor: pointer;
+  height: 29px;
+  line-height: 29px;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+
+.agendar-yes {
+  background-color: #47d72f;
+}
+
+.close-agendar {
+  background-color: #ff0000;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
 .main {
   width: 85%;
+  height: auto;
   margin: 0 auto;
   margin-top: 70px;
 }

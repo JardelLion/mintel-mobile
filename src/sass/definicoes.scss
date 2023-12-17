@@ -14,3 +14,42 @@
     border-radius: 5px;
     
 }
+
+
+
+
+.definicoes__phone, 
+.definicoes__password {
+    width: 100%;
+    margin: 16px auto;
+    display: block;
+    border: 1.7px solid #868686;
+    height: 32px;
+    text-indent: 10px;
+
+    &::placeholder {
+        text-indent: 10px;
+        font-size: 1rem;
+        color: #868686;
+    }
+}
+
+
+
+.form-field__password {
+   
+    position: relative;
+
+
+
+    & .open-eye,
+    & .close-eye {
+        position: absolute;
+        top: 4px;
+        right: 14px;
+        cursor: pointer;
+ 
+       
+    }
+
+}
