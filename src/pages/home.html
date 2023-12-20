@@ -94,7 +94,25 @@
                             
                     </a>
                    
-                    <a class="grid-item usuario-link" href="usario.html">
+                    <a class="grid-item usuario-link" id="usuario">
+                        
+                        <script>
+                            let value_href = window.location.href
+                            
+                            let index = value_href.indexOf('?')
+                            
+                            let value = value_href.slice(index + 6)
+
+                            let usuario = document.querySelector("#usuario")
+
+                            usuario.addEventListener("click", function(e){
+                                e.preventDefault()
+
+                                window.location.href = `usuario.html?user=${value}`
+                            })
+
+                        </script>
+                        
                         <span class="usuario__title">Usuário</span>
                         <svg width="54"
                         height="54"

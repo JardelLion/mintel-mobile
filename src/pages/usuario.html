@@ -130,7 +130,24 @@
                             
                     </a>
                    
-                    <a class="grid-item usuario-link" href="usario.html">
+                    <a class="grid-item usuario-link" id="usuario">
+                        <script>
+                            let value_href = window.location.href
+                            
+                            let index = value_href.indexOf('?')
+                            
+                            let value = value_href.slice(index + 6)
+
+                            let usuario = document.querySelector("#usuario")
+
+                            usuario.addEventListener("click", function(e){
+                                e.preventDefault()
+
+                                window.location.href = `usuario.html?user=${value}`
+                            })
+
+                        </script>
+
                         <span class="usuario__title">Usuário</span>
                         <svg width="54"
                         height="54"
@@ -217,10 +234,10 @@
             </section>
     
             <section class="client-section">
-                <input type="text" class="client-name-input" id="client-name" placeholder="Nome" required>
-                <input type="text" class="client-name-input" id="client-sex" placeholder="Genero" required>
-                <input type="datetime" class="client-phone-input" id="client-phone" placeholder="Telefone" required>
-                <input type="text" class="client-email-input" id="client-email" placeholder="Email" required>
+                <input type="text" class="client-name-input" id="client-name" name="nome" placeholder="Nome" required>
+                <input type="text" class="client-name-input" id="client-sex" name="genero" placeholder="Genero" required>
+                <input type="datetime" class="client-phone-input" id="client-phone" name="telefone" placeholder="Telefone" required>
+                <input type="text" class="client-email-input" id="client-email" name="email" placeholder="Email" required>
             </section>
     
 
@@ -252,6 +269,75 @@
 
 
         </form>
+
+
+          <!-- CONSUMINDO A API -->
+          <script>
+
+            $(document).ready(function(){
+                let value_href = window.location.href        
+                let index = value_href.indexOf('?')        
+                let value = value_href.slice(index + 6)
+
+                let identificador = value
+
+                
+                // Substitua 'SEU_TOKEN_A' pelo token real
+                var token = "rGufgHvxZi2JEWUQF2ys9sKjGe7f0FT5jDPzJoUQywnSdkhGoT1EpTVtqNLJZfXJSYHowOlKhdTMM7Vv\/e4wzhSvFx7+GKooAXkS6hfQAdfW+WKH3qRNjvx0tAkShI+DP4Pic5zHvoZ7x1i0ju5gAOb01baIZ5\/Lpx8IbmR0Hr\/LAipD8Jqp+pJXzMj6lAcPnKSdeGh3\/rQ\/6q7axDo2US97dxdu9dxHfcOOxXxEemq024\/VusfNoujC\/SZW\/5oQmh6H4+rsXDH42EucnVd\/g5ndN\/beccK0hZIps67KJ4jiBa8X6b+lFljWRC16FwVZ5oYHtlZuypRb13CKT+XCqaX6ICEqsIpK7999YDde0Ud3bSPc6kzvFdkYymlSB68P7N2az0Tnm01z\/Cao4qKtpwrrKxC6HaUu315i75BEZCq7X7k7ueTOBvpXu97lqw3sW5GGGT2foaN87kL6LCR+leP15DdDEAfH2+U\/8dkOc8P8wEzbn5Av4M+UUi15ZWSJlkBp4\/qYKObSjBPz2p+bp52gAp1fQyxBnZMHfC4oiu3xpT+b8EBOUNMvQa0vs2ZuNTXJcym1hcV3koWa3735azenrlq5993AFlwlNSglo97wbPe44+\/BBekiy\/ltMJTwDNdOaQiGyxkCtc0jJlXLfwUAqOBgItOg4avptqZma81Ce5iE5jkJ8JR\/d4QCsY6ACfA4SK\/NTXiWte3edC4KYzU0GmNkP1ql1hJabh92q+9uzcDte+HQs6wK38VkEFogr1hcqJaDHDEa6kQ0ha6OhykHqsqMKZ1S\/FnXYJ8d7mmDCes5A+e1IqvhnhHCmtD7157vH6B6NAU4+LE+QRoIygwSmHiZZbAD\/6gWoiN5Wpogw2kHFri7wA2jhXBe0ThaZEHwuKQXlKbhzW+tyarUe4Gu20W2L3T7G68R4eGj0eIwVYqQkfjwpfLvoIlJj5rd3HpJNrV4ReQYYxEEK7yn40Gh4kq3vbk1WjEhcHe\/exRlcUqEORu6b\/YiptbEYhMdhDU2VVGdtKyNVmRLSlLsrw3x5JpuimSmew3tJE1c2WyxcavJU9AWqeXRsYSi.NjY1MjQ2MzI1MzdhNDU1NDc5Nzc3MTc5Njg1NTQ2NmYzODMwNjQzODMyNzU0NjU4NmM0NTRlMzU1MjY2NTU3NTZkNjc1NzMwMzk2NDQzNGU="
+                // URL do endpoint para obter mensagens
+                var url = 'https://api.mintel.ao/usuario';
+                
+                // Configuração da solicitação AJAX
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    headers: {
+                        'token': token
+                    },
+                    success: function(data) {
+
+                    
+                        // Manipule a resposta aqui
+                    // Dados fornecido
+                        // Se data é uma string, você precisa analisá-la para obter um objeto
+                        if (typeof data === 'string') {
+                            try {
+                                data = JSON.parse(data);
+                            }   
+                            
+                            catch (error) {
+                            console.error('Erro ao analisar os dados JSON:', error);
+                            // Lide com o erro conforme necessário
+                            }
+                        }
+                    
+                        for(let i = 0; i <= data["payload"].length-1; i++){
+                        
+
+                            if(data["payload"][i].identificador == identificador){
+
+                               $("#client-name").attr("placeholder", data["payload"][i].nome)
+                               $("#client-sex").attr("placeholder", data["payload"][i].genero)
+                               $("#client-phone").attr("placeholder", data["payload"][i].telefone)
+                               $("#client-email").attr("placeholder", data["payload"][i].email)
+                                
+                                    
+                            }
+                        }
+                    
+                    },
+                
+                    error: function(error) {
+                        // Manipule erros aqui
+                        console.error('Erro na solicitação:', error);
+                        }
+                    });
+    
+
+            })
+           
+            
+            </script>
 
        
         
