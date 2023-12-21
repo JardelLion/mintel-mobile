@@ -12,6 +12,48 @@
 </body>
 
 <script>
+        // URL da API
+    const apiUrl = 'https://api.mintel.ao/entrar';
+
+    // Dados a serem enviados no corpo da requisição (se necessário)
+    const dadosDoCorpo = {
+    telefone: '943919317',
+    password: '123456',
+    };
+
+    // Configuração da requisição
+    const requestOptions = {
+        method: 'POST', // ou 'GET', 'PUT', 'DELETE', etc., dependendo da sua API
+        headers: {
+        'Content-Type': 'application/json', // Certifique-se de ajustar conforme necessário
+        // Se você precisar incluir headers adicionais, adicione-os aqui
+        },
+        body: JSON.stringify(dadosDoCorpo), // Convertendo dados do corpo para JSON, se necessário
+    };
+
+    // Fazendo a requisição à API
+    fetch(apiUrl, requestOptions)
+    .then(response => {
+        // Verifica se a resposta foi bem-sucedida (status 200-299)
+        if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+        }
+
+        // Parseia a resposta JSON, se aplicável
+        return response.json();
+    })
+    .then(data => {
+        // Faça algo com os dados da resposta
+        console.log('Dados recebidos:', data);
+    })
+    .catch(error => {
+        // Lida com erros durante a requisição
+        console.error('Erro na requisição:', error);
+    });
+
+</script>
+
+<!-- <script>
 
     localStorage.setItem("token", "rGufgHvxZi2JEWUQF2ys9sKjGe7f0FT5jDPzJoUQywnSdkhGoT1EpTVtqNLJZfXJSYHowOlKhdTMM7Vv\/e4wzhSvFx7+GKooAXkS6hfQAdfW+WKH3qRNjvx0tAkShI+DP4Pic5zHvoZ7x1i0ju5gAOb01baIZ5\/Lpx8IbmR0Hr\/LAipD8Jqp+pJXzMj6lAcPnKSdeGh3\/rQ\/6q7axDo2US97dxdu9dxHfcOOxXxEemq024\/VusfNoujC\/SZW\/5oQmh6H4+rsXDH42EucnVd\/g5ndN\/beccK0hZIps67KJ4jiBa8X6b+lFljWRC16FwVZ5oYHtlZuypRb13CKT+XCqaX6ICEqsIpK7999YDde0Ud3bSPc6kzvFdkYymlSB68P7N2az0Tnm01z\/Cao4qKtpwrrKxC6HaUu315i75BEZCq7X7k7ueTOBvpXu97lqw3sW5GGGT2foaN87kL6LCR+leP15DdDEAfH2+U\/8dkOc8P8wEzbn5Av4M+UUi15ZWSJlkBp4\/qYKObSjBPz2p+bp52gAp1fQyxBnZMHfC4oiu3xpT+b8EBOUNMvQa0vs2ZuNTXJcym1hcV3koWa3735azenrlq5993AFlwlNSglo97wbPe44+\/BBekiy\/ltMJTwDNdOaQiGyxkCtc0jJlXLfwUAqOBgItOg4avptqZma81Ce5iE5jkJ8JR\/d4QCsY6ACfA4SK\/NTXiWte3edC4KYzU0GmNkP1ql1hJabh92q+9uzcDte+HQs6wK38VkEFogr1hcqJaDHDEa6kQ0ha6OhykHqsqMKZ1S\/FnXYJ8d7mmDCes5A+e1IqvhnhHCmtD7157vH6B6NAU4+LE+QRoIygwSmHiZZbAD\/6gWoiN5Wpogw2kHFri7wA2jhXBe0ThaZEHwuKQXlKbhzW+tyarUe4Gu20W2L3T7G68R4eGj0eIwVYqQkfjwpfLvoIlJj5rd3HpJNrV4ReQYYxEEK7yn40Gh4kq3vbk1WjEhcHe\/exRlcUqEORu6b\/YiptbEYhMdhDU2VVGdtKyNVmRLSlLsrw3x5JpuimSmew3tJE1c2WyxcavJU9AWqeXRsYSi.NjY1MjQ2MzI1MzdhNDU1NDc5Nzc3MTc5Njg1NTQ2NmYzODMwNjQzODMyNzU0NjU4NmM0NTRlMzU1MjY2NTU3NTZkNjc1NzMwMzk2NDQzNGU=")
 
@@ -60,5 +102,7 @@ $.ajax({
     
 
 
-</script>
+</script> -->
+
+
 </html>
